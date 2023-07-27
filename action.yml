@@ -1,0 +1,50 @@
+name: "Export config data"
+description: "Expoer config data from Devops Config"
+inputs:
+  sn_instance:
+    description: "ServiceNow instance"
+    required: true
+  sn_user:
+    description: "ServiceNow user"
+    required: true
+  sn_password:
+    description: "ServiceNow password"
+    required: true
+  application:
+    description: "Devops Config application"
+    required: true
+  exporter:
+    description: "Devops Config exporter"
+    required: true
+  deployable:
+    description: "Devops Config deployable"
+    required: true
+  format:
+    description: "Format to export into"
+    required: true
+  snapshot:
+    description: "Devops Config snapshot name"
+    required: false
+  additional_deployables:
+    description: "Additional Devops Config deployables"
+    required: false
+  input_args:
+    description: "Arguments in JSON format to be used in the Devops Config exporter"
+    required: false
+outputs:
+  export_content:
+    description: "Output of the exporter run"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.sn_instance }}
+    - ${{ inputs.sn_user }}
+    - ${{ inputs.sn_password }}
+    - ${{ inputs.application }}
+    - ${{ inputs.exporter }}
+    - ${{ inputs.deployable }}
+    - ${{ inputs.format }}
+    - ${{ inputs.snapshot }}
+    - ${{ inputs.additional_deployables }}
+    - ${{ inputs.input_args }}
