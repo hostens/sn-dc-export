@@ -1,5 +1,5 @@
 name: "Export config data"
-description: "Expoer config data from Devops Config"
+description: "Export config data from Devops Config"
 inputs:
   sn_instance:
     description: "ServiceNow instance"
@@ -20,7 +20,7 @@ inputs:
     description: "Devops Config deployable"
     required: true
   format:
-    description: "Format to export into"
+    description: "Format to export into (properties|ini|xml|yaml|json|raw)"
     required: true
   snapshot:
     description: "Devops Config snapshot name"
