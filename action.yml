@@ -1,13 +1,13 @@
 name: "Export config data"
 description: "Export config data from Devops Config"
 inputs:
-  sn_instance:
+  instance-url:
     description: "ServiceNow instance"
     required: true
-  sn_user:
+  devops-integration-user-name:
     description: "ServiceNow user"
     required: true
-  sn_password:
+  devops-integration-user-password:
     description: "ServiceNow password"
     required: true
   application:
@@ -38,9 +38,9 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.sn_instance }}
-    - ${{ inputs.sn_user }}
-    - ${{ inputs.sn_password }}
+    - ${{ inputs.instance-url }}
+    - ${{ inputs.devops-integration-user-name }}
+    - ${{ inputs.devops-integration-user-password }}
     - ${{ inputs.application }}
     - ${{ inputs.exporter }}
     - ${{ inputs.deployable }}
